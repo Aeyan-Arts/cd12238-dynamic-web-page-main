@@ -270,13 +270,12 @@ section.active .landing__container::after {
     margin-right: 5px;
     display: flex;
     flex-direction: column;
-
 }
 
 fieldset{
     display: flex;
     flex-direction: column;
-    align-content: flex-start; 
+    align-content: flex-start;
     background-color: rgba(95, 82, 143, 0.158);
 }
 

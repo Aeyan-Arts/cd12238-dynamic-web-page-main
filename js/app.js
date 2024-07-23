@@ -55,7 +55,7 @@ function activeSection(){
         , and if true add the class "active" else remove it*/
         if (clientPostion <= 300 && clientPostion>=-35){
             section.classList.add("active");
-            
+
         }else{
             section.classList.remove("active");
         }
