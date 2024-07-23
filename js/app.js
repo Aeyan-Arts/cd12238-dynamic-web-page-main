@@ -17,7 +17,9 @@ for (let i = 1; i<6 ; i++){
     unordered.appendChild(creatList);
     /**adding styling */
     creatList.classList.add("navbar__menu");
+
 }
+
 
 /**Adding smooth scrolling **/
 
@@ -37,41 +39,31 @@ allLink.forEach(item => {
     })
 });
 
-/** TODO: Add an active state **/
 
+/**Adding an active state **/
 
-function kil(){
-    clientPostion= getBoundingClientRect()
-    /**Task 1: Write a function that returns the position of a section */
+/**making a function to easliy call it */
+function activeSection(){
+    /**getting all of the section */
+    const allSection = document.querySelectorAll("section")
+    /**making a forEach loop to go through every section*/
+    allSection.forEach(section => {
+        /**declaring varibul -clientPostion- that holds the length from the top of the section*/
+        const clientPostion= section.getBoundingClientRect().top;
+        /**an if else statment that uses the clint position to know where it's
+        , and if true add the class "active" else remove it*/
+        if (clientPostion <= 300 && clientPostion>=-35){
+            section.classList.add("active");
+            
+        }else{
+            section.classList.remove("active");
+        }
+    });
 }
+/**adding the function to the event listner ,
+so whenever scroll happen the function is called */
+window.addEventListener("scroll", activeSection);
 
-function idk(){
-    /**Task 2: Write a function to determine if a section is in the "active" window */
-}
-
-function addorremove(){
-    /** Task 3: Write a function to add/remove a class based on the section's state*/
-}
-/**window.addEventListener('scroll', checkActiveSection());*/
-
-/** Look at this tmr with a fresh mind
- * badly built
- function checkActiveSection(){
-allSections=document.querySelectorAll('section')
-allSections.forEach(section =>{
-    const activeSection = section.getBoundingClientRect()
-    let clientsHeight = window.innerHeight;
-    console.log("inforloob")
-    if (activeSection == clientsHeight/2){
-        section.classList.add("active")
-        console.log("yes")
-    }else{
-        section.classList.remove("active")
-        console.log("no")
-    }
-    console.log("fun")
-})
-}
 
 /**Adding a comment form **/
 
@@ -116,5 +108,3 @@ submitButton.addEventListener("click", function(event){
         }
     }
 })
-
-/**if you're still alive add localStorg */

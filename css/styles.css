@@ -298,6 +298,7 @@ input{
     margin: 1em;
     padding: 1em;
     background-color: rgba(95, 82, 143, 0.158);
+    overflow-wrap: break-word;
 }
 
 .faded{
