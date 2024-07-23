@@ -1,7 +1,9 @@
 /**Building the navigation bar using JavaScript **/
 
+/**getting the amount of section in the html */
+const numberSection = document.getElementsByTagName("section").length;
 /**a for loop to get the section manually */
-for (let i = 1; i<6 ; i++){
+for (let i = 1; i < numberSection + 1 ; i++){
     /**using quarySelector to get get the section one by one
      *then using .dataset to get its name*/
     let getSection= document.querySelector(`#section${i}`);
@@ -17,17 +19,16 @@ for (let i = 1; i<6 ; i++){
     unordered.appendChild(creatList);
     /**adding styling */
     creatList.classList.add("navbar__menu");
-
-}
+};
 
 
 /**Adding smooth scrolling **/
 
-/**adding a varuble that has all the links */
+/**adding a variable that has all the links */
 let allLink = document.querySelectorAll("a");
 /**using forEach loop to add an event listener to every item */
 allLink.forEach(item => {
-    item.addEventListener('click', function(event){
+    item.addEventListener("click", function(event){
         /** using .preventDefault() to remove jumping */
         event.preventDefault();
         /**getting the href attribute to the clicked section*/
@@ -36,7 +37,7 @@ allLink.forEach(item => {
          * then using .scrollIntoView for a smooth excpirnce*/
         targetedSection= document.querySelector(sectionLink);
         targetedSection.scrollIntoView({behavior: "smooth",block: "center"});
-    })
+    });
 });
 
 
@@ -45,10 +46,10 @@ allLink.forEach(item => {
 /**making a function to easliy call it */
 function activeSection(){
     /**getting all of the section */
-    const allSection = document.querySelectorAll("section")
+    const allSection = document.querySelectorAll("section");
     /**making a forEach loop to go through every section*/
     allSection.forEach(section => {
-        /**declaring varibul -clientPostion- that holds the length from the top of the section*/
+        /**declaring variable -clientPostion- that holds the length from the top of the section*/
         const clientPostion= section.getBoundingClientRect().top;
         /**an if else statment that uses the clint position to know where it's
         , and if true add the class "active" else remove it*/
@@ -94,7 +95,7 @@ submitButton.addEventListener("click", function(event){
         /**lastly we append the child -newComment- to the parent -commentSection- 
          then we reset the form*/
         commentSection.appendChild(newComment);
-        myForm.reset()
+        myForm.reset();
     }else{
         /**using if else statment to give diffrent alerts according to what's wrong */
         if(commentText == "" && emailText == "" && nameText == ""){
@@ -107,4 +108,4 @@ submitButton.addEventListener("click", function(event){
             alert("valid E-mail needed...");
         }
     }
-})
+});
